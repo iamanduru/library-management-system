@@ -1,0 +1,402 @@
+
+/* ==========================================
+   Dashboard / Overview
+   ========================================== */
+
+/* PAGE HEADER */
+
+.overview-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.overview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.overview-heading h1 {
+  margin: 0;
+  color: var(--app-text, #242b29);
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 2.7vw, 36px);
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  line-height: 1.2;
+}
+
+.overview-heading p {
+  margin: 9px 0 0;
+  color: var(--app-muted, #69746e);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   COMPACT METRICS
+   ========================================== */
+
+.overview-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 30px;
+  border-top: 1px solid var(--app-border, #e3e8e3);
+  border-bottom: 1px solid var(--app-border, #e3e8e3);
+  background: #ffffff;
+}
+
+.overview-metric {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-width: 0;
+  padding: 27px 24px;
+}
+
+.overview-metric:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 0;
+  bottom: 24px;
+  width: 1px;
+  background: var(--app-border, #e3e8e3);
+}
+
+.overview-metric-value {
+  color: var(--app-text, #242b29);
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3vw, 42px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -1.8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.overview-metric-label {
+  color: var(--app-muted, #69746e);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ==========================================
+   DASHBOARD GRID
+   ========================================== */
+
+.overview-content {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.85fr)
+    minmax(270px, 0.9fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.overview-panel {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid var(--app-border, #e3e8e3);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.overview-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 23px 24px;
+}
+
+.overview-panel-header h2 {
+  margin: 0;
+  color: var(--app-text, #242b29);
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.35px;
+}
+
+.overview-panel-header p {
+  margin: 7px 0 0;
+  color: var(--app-muted, #69746e);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.overview-record-count {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border: 1px solid #e5ebe5;
+  border-radius: 5px;
+  color: #64746a;
+  background: #f8faf8;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   RECENT LOANS TABLE
+   ========================================== */
+
+.overview-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d9d2 transparent;
+}
+
+.overview-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.overview-table thead {
+  background: #f8faf8;
+}
+
+.overview-table th {
+  padding: 14px 17px;
+  border-top: 1px solid #edf0ed;
+  border-bottom: 1px solid #edf0ed;
+  color: #77837b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  white-space: nowrap;
+}
+
+.overview-table td {
+  padding: 18px 17px;
+  border-bottom: 1px solid #eef1ee;
+  color: #5e6b62;
+  font-size: 11px;
+  line-height: 1.6;
+  vertical-align: middle;
+}
+
+.overview-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.overview-table tbody tr {
+  transition: background-color 160ms ease;
+}
+
+.overview-table tbody tr:hover {
+  background-color: #f8faf8;
+}
+
+.overview-book-name {
+  max-width: 240px;
+  color: var(--app-text, #242b29) !important;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.overview-empty {
+  padding: 35px 20px !important;
+  color: #859188;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ==========================================
+   LOAN STATUS
+   ========================================== */
+
+.overview-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.overview-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.overview-status-active {
+  color: #986044;
+  background: #faf1eb;
+}
+
+.overview-status-returned {
+  color: #437358;
+  background: #edf5ef;
+}
+
+/* ==========================================
+   SCHEDULED RETURNS
+   ========================================== */
+
+.overview-returns .overview-panel-header {
+  padding-bottom: 20px;
+}
+
+.overview-return-list {
+  padding: 0 24px 8px;
+}
+
+.overview-return-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 0;
+  border-top: 1px solid #edf0ed;
+  transition: background-color 160ms ease;
+}
+
+.overview-return-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 2px;
+  width: 49px;
+  height: 55px;
+  background: #f3f6f2;
+  border: 1px solid #e6ebe5;
+  border-radius: 6px;
+}
+
+.overview-return-day {
+  color: var(--app-text, #242b29);
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.overview-return-month {
+  color: #718075;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.overview-return-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.overview-return-info strong {
+  color: var(--app-text, #242b29);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.overview-return-info > span {
+  color: var(--app-muted, #69746e);
+  font-size: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 1280px) {
+  .overview-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .overview-returns {
+    width: 100%;
+  }
+
+  .overview-return-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .overview-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-metric:nth-child(2)::after {
+    display: none;
+  }
+
+  .overview-metric:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--app-border, #e3e8e3);
+  }
+}
+
+@media (max-width: 600px) {
+  .overview-heading {
+    margin-bottom: 25px;
+  }
+
+  .overview-heading h1 {
+    font-size: 29px;
+  }
+
+  .overview-heading p {
+    font-size: 12px;
+  }
+
+  .overview-metrics {
+    margin-bottom: 20px;
+  }
+
+  .overview-metric {
+    padding: 22px 17px;
+  }
+
+  .overview-metric-value {
+    font-size: 34px;
+  }
+
+  .overview-metric-label {
+    font-size: 11px;
+  }
+
+  .overview-content {
+    gap: 15px;
+  }
+
+  .overview-panel-header {
+    padding: 20px 17px;
+  }
+
+  .overview-return-list {
+    display: block;
+    padding: 0 17px 8px;
+  }
+
+  .overview-record-count {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .overview-table tbody tr,
+  .overview-return-item {
+    transition: none;
+  }
+}
